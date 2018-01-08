@@ -1,18 +1,16 @@
 package no.octopod.quizgame.entities;
 
-import org.hamcrest.core.IsNull;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
 import javax.persistence.*;
-
 import java.util.List;
 
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
 
-public class QuizEntityTest {
+public class QuizTest {
     private EntityManagerFactory emFactory;
     private EntityManager em;
 
@@ -42,7 +40,6 @@ public class QuizEntityTest {
         assertNull(quiz.getId());
         persist(quiz);
         assertNotNull(quiz.getId());
-        System.out.println("Generated Quiz ID: " + quiz.getId());
     }
 
     @Test
@@ -95,6 +92,7 @@ public class QuizEntityTest {
         assertTrue(quizzes.stream().anyMatch(k -> k.getQuestion().equals(secondQuestion)));
     }
 
+    @SuppressWarnings("Duplicates")
     private boolean persist(Object obj) {
         EntityTransaction tx = em.getTransaction();
         tx.begin();
