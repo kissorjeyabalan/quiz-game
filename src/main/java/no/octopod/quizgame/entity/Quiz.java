@@ -1,4 +1,4 @@
-package no.octopod.quizgame.entities;
+package no.octopod.quizgame.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

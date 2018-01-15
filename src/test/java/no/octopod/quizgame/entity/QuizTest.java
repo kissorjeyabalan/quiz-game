@@ -1,4 +1,4 @@
-package no.octopod.quizgame.entities;
+package no.octopod.quizgame.entity;
 
 import org.junit.After;
 import org.junit.Before;
@@ -99,6 +99,7 @@ public class QuizTest {
         try {
             em.persist(obj);
             tx.commit();
+
         } catch (Exception e) {
             System.out.println("Transaction Failure: " + e.getMessage());
             return false;

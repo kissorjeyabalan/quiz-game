@@ -1,4 +1,4 @@
-package no.octopod.quizgame.entities;
+package no.octopod.quizgame.entity;
 
 import org.junit.After;
 import org.junit.Before;
