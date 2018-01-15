@@ -1,18 +1,22 @@
 package no.octopod.quizgame.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class SubCategory {
 
-    @Id @GeneratedValue
+    @Id
+    @GeneratedValue
     private Long id;
 
     private String name;
 
-    public SubCategory() {}
+    @ManyToOne
+    private Category parent;
+
+    public SubCategory() {
+    }
+
 
     public Long getId() {
         return id;
@@ -28,5 +32,13 @@ public class SubCategory {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Category getParent() {
+        return parent;
+    }
+
+    public void setParent(Category parent) {
+        this.parent = parent;
     }
 }

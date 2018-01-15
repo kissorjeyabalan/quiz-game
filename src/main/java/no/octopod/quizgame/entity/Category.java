@@ -1,18 +1,23 @@
 package no.octopod.quizgame.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Category {
 
-    @Id @GeneratedValue
+    @Id
+    @GeneratedValue
     private Long id;
 
     private String name;
 
-    public Category(){}
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "parent")
+    private List<SubCategory> subCategories;
+
+    public Category() {
+    }
+
 
     public Long getId() {
         return id;
@@ -28,5 +33,13 @@ public class Category {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public List<SubCategory> getSubCategories() {
+        return subCategories;
+    }
+
+    public void setSubCategories(List<SubCategory> subCategories) {
+        this.subCategories = subCategories;
     }
 }
