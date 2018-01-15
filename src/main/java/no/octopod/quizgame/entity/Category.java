@@ -1,6 +1,7 @@
 package no.octopod.quizgame.entity;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -16,6 +17,7 @@ public class Category {
     private List<SubCategory> subCategories;
 
     public Category() {
+        subCategories = new ArrayList<>();
     }
 
 
