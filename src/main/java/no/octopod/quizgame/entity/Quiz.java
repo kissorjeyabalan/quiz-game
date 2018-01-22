@@ -1,6 +1,11 @@
 package no.octopod.quizgame.entity;
 
+import org.hibernate.validator.constraints.NotBlank;
+import org.hibernate.validator.constraints.Range;
+
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 public class Quiz {
@@ -9,14 +14,33 @@ public class Quiz {
     @GeneratedValue
     private Long id;
 
+    @NotNull
     @ManyToOne
     private SubCategory subCategory;
 
+    @NotBlank
+    @Size(min=2,max=128)
+    @Column(unique = true)
     private String question;
+
+    @NotBlank
+    @Size(max=128)
     private String firstAnswer;
+
+    @NotBlank
+    @Size(max=128)
     private String secondAnswer;
+
+    @NotBlank
+    @Size(max=128)
     private String thirdAnswer;
+
+    @NotBlank
+    @Size(max=128)
     private String fourthAnswer;
+
+    @NotNull
+    @Range(max=3)
     private int correctAnswerIndex;
 
     public Quiz() {
