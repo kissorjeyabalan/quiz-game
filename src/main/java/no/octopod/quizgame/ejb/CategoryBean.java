@@ -1,4 +1,4 @@
-package ejb;
+package no.octopod.quizgame.ejb;
 
 import no.octopod.quizgame.entity.Category;
 import no.octopod.quizgame.entity.SubCategory;
@@ -23,7 +23,7 @@ public class CategoryBean {
         return category.getId();
     }
 
-    public Long createSubcategory(long parentId, String name) {
+    public Long createSubCategory(long parentId, String name) {
         Category parent = em.find(Category.class, parentId);
         if (parent == null) {
             throw new IllegalArgumentException("Parent with ID " + parentId + " does not exist.");
